@@ -11,7 +11,7 @@ CNN_MODEL_PATH = "o_ring_cnn_classifier (1).keras"
 cnn_model = tf.keras.models.load_model(CNN_MODEL_PATH)
 _, H, W, C = cnn_model.input_shape
 
-CNN_CLASSES = ["good", "breakage"]
+CNN_CLASSES = ["breakage", "good"]
 
 print("✅ CNN model loaded")
 
