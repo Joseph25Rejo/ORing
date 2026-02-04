@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Request
 from PIL import Image
 import tensorflow as tf
 import numpy as np
@@ -63,6 +63,6 @@ async def predict(file: UploadFile = File(...)):
 # ======================================================
 # HEALTH CHECK (IMPORTANT FOR RENDER)
 # ======================================================
-@app.get("/")
-def health():
+@app.api_route("/", methods=["GET", "HEAD"])
+async def health(request: Request):
     return {"status": "ok"}
